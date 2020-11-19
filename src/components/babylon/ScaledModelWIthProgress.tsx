@@ -25,6 +25,7 @@ class ScaledModelWithProgress extends Component<any, any> {
                     }}
                     onModelLoaded={(model) => {
                         this.setState({ loadProgress: 1 })
+                        console.log('model loaded');
                         if (this.props.onModelLoaded) {
                             this.props.onModelLoaded(model, this.props.sceneContext)
                         }

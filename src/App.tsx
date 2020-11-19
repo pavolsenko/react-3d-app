@@ -1,4 +1,4 @@
-import {createStyles, makeStyles, Theme } from '@material-ui/core';
+import {createStyles, makeStyles } from '@material-ui/core';
 import * as React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
@@ -7,6 +7,7 @@ import BasicComponent from './components/babylon/BasicComponent';
 import ReactComponent from './components/babylon/ReactComponent';
 import MenuDrawer from './components/MenuDrawer';
 import FloorPlan from './components/babylon/Floorplan';
+import FloorPlan2 from './components/babylon/Floorplan2';
 
 export const DRAWER_WIDTH: number = 250;
 
@@ -16,10 +17,13 @@ const useStyles = makeStyles(() =>
             marginLeft: DRAWER_WIDTH,
             marginTop: 64,
             display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'column',
 
             '& canvas': {
-                width: '100%',
-                height: '100%',
+                width: 1000,
+                height: 1000,
             }
         },
     }),
@@ -29,7 +33,8 @@ const routes: string[] = [
     'Basic Example',
     'React Example #1',
     'React Example #2',
-    'Floor Plan',
+    'Floor Plan #1',
+    'Floor Plan #2',
 ];
 
 const App = () => {
@@ -54,6 +59,9 @@ const App = () => {
                         </Route>
                         <Route path={'/3'}>
                             <FloorPlan />
+                        </Route>
+                        <Route path={'/4'}>
+                            <FloorPlan2 />
                         </Route>
                         <Route path='/'>
                             <div/>
