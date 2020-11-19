@@ -35,11 +35,11 @@ const MyScene = () => {
     const scene = useBabylonScene();
 
     const makeScreenshot = (engine: BabylonEngine | null, scene: BabylonScene | null) => {
-        if (!engine || !scene || !scene.cameras[0]) {
+        if (!engine || !scene) {
             return;
         }
-
-        ScreenshotTools.CreateScreenshot(engine, scene.cameras[0], 400);
+        
+        ScreenshotTools.CreateScreenshot(engine, scene.cameras[0], 1000);
     }
 
     React.useEffect(() => {
@@ -111,7 +111,12 @@ export const FloorPlan2 = () => {
                 </Button>
             </div>
 
-            <Engine antialias adaptToDeviceRatio canvasId='babylonJS'>
+            <Engine
+                antialias
+                adaptToDeviceRatio
+                canvasId='babylonJS'
+                engineOptions={{preserveDrawingBuffer: true}}
+            >
                 <Scene>
                     <MyScene/>
                 </Scene>

@@ -111,6 +111,7 @@ export const FloorPlan = () => {
                 antialias
                 adaptToDeviceRatio
                 canvasId='babylonJS'
+                engineOptions={{preserveDrawingBuffer: true}}
             >
                 <Scene>
                     <arcRotateCamera

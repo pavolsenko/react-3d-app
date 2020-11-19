@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { Engine, Scene } from '@babylonjs/core';
 
-export default (props: any) => {
+const SceneComponent = (props: any) => {
     const reactCanvas = useRef(null);
     const { antialias, engineOptions, adaptToDeviceRatio, sceneOptions, onRender, onSceneReady, ...rest } = props;
+
     useEffect(() => {
         if (reactCanvas.current) {
             const engine = new Engine(reactCanvas.current, antialias, engineOptions, adaptToDeviceRatio);
@@ -32,8 +33,11 @@ export default (props: any) => {
                 }
             }
         }
-    }, [reactCanvas])
+    }, [adaptToDeviceRatio, antialias, engineOptions, onRender, props, reactCanvas, sceneOptions]);
+
     return (
         <canvas ref={reactCanvas} {...rest} />
     );
 }
+
+export default SceneComponent;
