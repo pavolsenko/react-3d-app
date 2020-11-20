@@ -38,7 +38,7 @@ const MyScene = () => {
         if (!engine || !scene) {
             return;
         }
-        
+
         ScreenshotTools.CreateScreenshot(engine, scene.cameras[0], 1000);
     }
 

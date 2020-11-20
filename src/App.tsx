@@ -1,4 +1,4 @@
-import {createStyles, makeStyles } from '@material-ui/core';
+import {createStyles, makeStyles, ThemeProvider } from '@material-ui/core';
 import * as React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
@@ -8,6 +8,9 @@ import ReactComponent from './components/babylon/ReactComponent';
 import MenuDrawer from './components/MenuDrawer';
 import FloorPlan from './components/babylon/Floorplan';
 import FloorPlan2 from './components/babylon/Floorplan2';
+
+import theme from './config/theme';
+import EdgeDetection from './components/EdgeDetection';
 
 export const DRAWER_WIDTH: number = 250;
 
@@ -35,41 +38,47 @@ const routes: string[] = [
     'React Example #2',
     'Floor Plan #1',
     'Floor Plan #2',
+    'Edge Detecton',
 ];
 
 const App = () => {
     const classes = useStyles();
 
     return (
-        <BrowserRouter>
-            <>
-                <PrimarySearchAppBar/>
-                <MenuDrawer routes={routes}/>
+        <ThemeProvider theme={theme}>
+            <BrowserRouter>
+                <>
+                    <PrimarySearchAppBar/>
+                    <MenuDrawer routes={routes}/>
 
-                <div className={classes.content}>
-                    <Switch>
-                        <Route path={'/0'}>
-                            <BasicComponent />
-                        </Route>
-                        <Route path={'/1'}>
-                            <div/>
-                        </Route>
-                        <Route path={'/2'}>
-                            <ReactComponent />
-                        </Route>
-                        <Route path={'/3'}>
-                            <FloorPlan />
-                        </Route>
-                        <Route path={'/4'}>
-                            <FloorPlan2 />
-                        </Route>
-                        <Route path='/'>
-                            <div/>
-                        </Route>
-                    </Switch>
-                </div>
-            </>
-        </BrowserRouter>
+                    <div className={classes.content}>
+                        <Switch>
+                            <Route path={'/0'}>
+                                <BasicComponent />
+                            </Route>
+                            <Route path={'/1'}>
+                                <div/>
+                            </Route>
+                            <Route path={'/2'}>
+                                <ReactComponent />
+                            </Route>
+                            <Route path={'/3'}>
+                                <FloorPlan />
+                            </Route>
+                            <Route path={'/4'}>
+                                <FloorPlan2 />
+                            </Route>
+                            <Route path={'/5'}>
+                                <EdgeDetection />
+                            </Route>
+                            <Route path='/'>
+                                <div/>
+                            </Route>
+                        </Switch>
+                    </div>
+                </>
+            </BrowserRouter>
+        </ThemeProvider>
     );
 }
 
