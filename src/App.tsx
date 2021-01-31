@@ -11,6 +11,8 @@ import FloorPlan2 from './components/babylon/Floorplan2';
 
 import theme from './config/theme';
 import EdgeDetection from './components/EdgeDetection';
+import Beer from "./components/babylon/Beer";
+import Beer1 from "./components/babylon/Beer1";
 
 export const DRAWER_WIDTH: number = 250;
 
@@ -39,6 +41,8 @@ const routes: string[] = [
     'Floor Plan #1',
     'Floor Plan #2',
     'Edge Detecton',
+    'Beer 1',
+    'Beer 2',
 ];
 
 const App = () => {
@@ -70,6 +74,12 @@ const App = () => {
                             </Route>
                             <Route path={'/5'}>
                                 <EdgeDetection />
+                            </Route>
+                            <Route path={'/6'}>
+                                <Beer />
+                            </Route>
+                            <Route path={'/7'}>
+                                <Beer1 />
                             </Route>
                             <Route path='/'>
                                 <div/>
