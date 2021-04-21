@@ -10,13 +10,13 @@ interface IModel {
 }
 
 const model: IModel = {
-    rootUrl: `./assets/beer1/`,
-    sceneFilename: 'small_beer_bottle.obj',
+    rootUrl: `./assets/`,
+    sceneFilename: 'bier.glb',
 }
 
 const MODEL_DEFAULT_X = 0;
-const MODEL_DEFAULT_Y = -10;
-const MODEL_DEFAULT_Z = 30;
+const MODEL_DEFAULT_Y = -30;
+const MODEL_DEFAULT_Z = 150;
 const DEFAULT_LIGHT = '0.7';
 
 const useStyles = makeStyles((theme: Theme) =>
